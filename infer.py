@@ -11,7 +11,6 @@ import torch
 import torch.backends.cudnn as cudnn
 import torch.nn.functional as F
 from torchvision.transforms import Compose
-
 import datasets.dataset as dataset
 import utils
 from datasets.ae_transforms import *
@@ -146,7 +145,7 @@ def create_json(layout: list[list[int]], ocr: list[str]):
     regions = []
     lines = []
     current_line = []
-    for idx, i, j in enumerate(zip(layout, ocr)):
+    for idx, (i, j)in enumerate(zip(layout, ocr)):
         regions.append({
             'bounding_box': {
                 'x': i[0],
@@ -189,7 +188,7 @@ def combine_ocr_output(opt):
     with open(join(opt.out_dir, 'layout.txt'), 'r') as f:
         layout = f.read().strip().split('\n')
         layout = [list(map(int, i.strip(' ,').split(','))) for i in layout]
-        layout = [i for i in layout if len(i) == 5]
+        layout = [i for i in layout if len(i) >= 5]
     assert len(ocr) == len(layout), (
         'Count of Layout and OCR word images dont match, Something went wrong.'
     )
