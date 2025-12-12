@@ -2,7 +2,7 @@
 
 **BhaashaOCR** is a powerful End-to-End Page Recognition system designed specifically for Indic languages. It seamlessly handles both text recognition and complex layout analysis, ensuring that document structure is preserved.
 
-## 🌟 Key Updates (by Tapas)
+## 🌟 Key Updates 
 
 Significant enhancements have been made to the project to support complex document structures, specifically through the addition of a **Table Detection & Construction** pipeline.
 
